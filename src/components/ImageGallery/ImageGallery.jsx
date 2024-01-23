@@ -5,19 +5,17 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 export const ImageGallery = ({ searchResult, handleOpenModal }) => {
   return (
     <Gallery>
-      {Array.isArray(searchResult) &&
-        searchResult.map(({ id, tags, webformatURL, largeImageURL }) => {
-          return (
-            <ImageGalleryItem
-              key={id}
-              id={id}
-              tags={tags}
-              largeImageURL={largeImageURL}
-              webformatURL={webformatURL}
-              handleOpenModal={handleOpenModal}
-            />
-          );
-        })}
+      {Array.isArray(searchResult) && searchResult.length > 0 && 
+        searchResult.map(({ id, tags, webformatURL, largeImageURL }) => (
+          <ImageGalleryItem
+            key={id}
+            id={id}
+            tags={tags}
+            largeImageURL={largeImageURL}
+            webformatURL={webformatURL}
+            handleOpenModal={handleOpenModal}
+          />
+        ))}
     </Gallery>
   );
 };
